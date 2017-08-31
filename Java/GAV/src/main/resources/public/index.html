@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang = "pl">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>WebsSockets</title>
+    <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+
+</head>
+<body>
+
+    <div id="choosing kind" >
+    CHOOSE THE KIND OF GRAPH ALGORITHMS VISUALIZATIONS<br><br><br>
+
+        <table align="centre">
+            <tr><td><button id="BFS" align = "left">BFS - breadth-first search</button></td></tr>
+            <tr><td><button id="DFS" align = "left">DFS - depth-first search</button></td></tr>
+        </table>
+    </div>
+
+    <br><br>
+    <div id ="chatbot" >
+        <table align="centre">
+            <tr><td><button id="time" align = "left">What time is it?</button></td></tr>
+            <tr><td><button id="weekday" align = "left">What day of the week it is?</button></td></tr>
+            <tr><td><button id="weather" align = "left">What is the weather like?</button></td></tr>
+
+        </table>
+        <br><br>
+        <table width = "500">
+            <tr><td><div id = "responseTime" align = "centre" style = "display: none;"></div></td></tr>
+            <tr><td><div id = "responseWeekday" align = "centre" style = "display: none;"></div></td></tr>
+            <tr><td><div id = "responseWeather" align = "centre" style = "display: none;"></div></td></tr>
+        </table>
+
+    </div>
+
+    <script src="websocketDemo.js"></script>
+</body>
+</html>
