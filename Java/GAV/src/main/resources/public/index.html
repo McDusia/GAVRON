@@ -5,21 +5,35 @@
     <title>WebsSockets</title>
     <link rel="stylesheet" href="style.css">
     <meta charset="UTF-8">
-
+    <div class="main">
+        <h1 class="info">This is a page where you can check how various graph algorithms work.
+        Enjoy yourself!</h1>
+    </div>
 </head>
 <body>
 
-    <div id="choosing kind" >
-    CHOOSE THE KIND OF GRAPH ALGORITHMS VISUALIZATIONS<br><br><br>
+    <div id="choosing_kind", class="main">
+    <h2 class="info">Choose the kind of graph algorithms visualisations</h2>
+        <br><br>
 
-        <table align="centre">
-            <tr><td><button id="BFS" align = "left">BFS - breadth-first search</button></td></tr>
-            <tr><td><button id="DFS" align = "left">DFS - depth-first search</button></td></tr>
-        </table>
+
+        <ul>
+            <li><button id="BFS">BFS - breadth-first search</button>
+            <p class="paragraph"> This algorithm is simple algorithm for searching graph data structures.
+                It starts at one arbitrary node of a graph and explores the neighbour nodes first,
+                next move to the left neighbours.
+            </p></li>
+            <li><button id="DFS">DFS - depth-first search</button>
+            <p class="paragraph"> Similar to BFS this is algorithm for searching graph data structure.
+                It starts from selecting some node as the root and explores as far as possible
+                along each branch before backtracking.
+            </p></li>
+        </ul>
     </div>
 
     <br><br>
     <div id ="chatbot" >
+        <h2 id = "chatbot-string">Chatbot</h2>
         <table align="centre">
             <tr><td><button id="time" align = "left">What time is it?</button></td></tr>
             <tr><td><button id="weekday" align = "left">What day of the week it is?</button></td></tr>
@@ -27,13 +41,15 @@
 
         </table>
         <br><br>
-        <table width = "500">
+        <table width = "300">
             <tr><td><div id = "responseTime" align = "centre" style = "display: none;"></div></td></tr>
             <tr><td><div id = "responseWeekday" align = "centre" style = "display: none;"></div></td></tr>
             <tr><td><div id = "responseWeather" align = "centre" style = "display: none;"></div></td></tr>
         </table>
 
     </div>
+
+    <img id = "graph" src="graf.png">
 
     <script src="websocketDemo.js"></script>
 </body>

@@ -7,12 +7,14 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="Chat" />
+        <module name="GAV" />
         <module name="GAVRON" />
         <module name="madzia-core" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="Chat" target="1.8" />
+      <module name="GAV" target="1.8" />
       <module name="GAVRON" target="1.8" />
       <module name="madzia-core" target="1.8" />
     </bytecodeTargetLevel>
