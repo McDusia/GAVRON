@@ -1,33 +1,29 @@
 //Establish the WebSocket connection and set up event handlers
 
 //CLIENT SIDE
-var webSocket = new WebSocket("ws://" + location.hostname + ":" + location.port+ "/public/");
+var webSocket = new WebSocket("ws://" + location.hostname + ":" + location.port + "/public/");
+//var webSocket = new WebSocket("ws://graph.alt-wn.com:8080");
 webSocket.onmessage = function (msg) { paintPage(msg); };
 webSocket.onclose = function () { alert("Connection closed") };
 var Mode=1;
+screenMode(1);
 
 
 id("BFS").addEventListener("click", function () {
-    screenMode(2);
-    webSocket.send(String.fromCharCode(1));
+   screenMode(2);
+   webSocket.send(String.fromCharCode(1));
  });
 
 id("DFS").addEventListener("click", function () {
-    screenMode(2);
-    webSocket.send(String.fromCharCode(2));
+   screenMode(2);
+   webSocket.send(String.fromCharCode(2));
  });
-
-
-id("time").addEventListener("click", function () {
-    webSocket.send(String.fromCharCode(3) + "time");
+id("graph_input_text").addEventListener("keypress",function(e) {
+   if(e.keyCode == 13) {sendMessage(e.target.value);}
 });
 
-id("weekday").addEventListener("click", function () {
-    webSocket.send(String.fromCharCode(3) + "weekday");
-});
-
-id("weather").addEventListener("click", function () {
-    webSocket.send(String.fromCharCode(3) + "weather");
+id("send").addEventListener("click", function() {
+    sendMessage(id("graph_input_text").value);
 });
 
 
@@ -37,12 +33,12 @@ function screenMode(mode)
 
     switch(mode){
         case 1:
-        id("choosing kind").style.display = '';
-        id("chatbot").style.display = '';
+        id("choosing_kind").style.display = '';
+        id("graph_input").style.display = 'none';
         break;
         case 2:
-        id("choosing kind").style.display = 'none';
-        id("chatbot").style.display = 'none';
+        id("choosing_kind").style.display = 'none';
+        id("graph_input").style.display = '';
     }
 }
 
@@ -55,7 +51,7 @@ function paintPage(msg) {
     switch(Mode){
     case 1:
 
-        updateChatbot(sender,message);
+        //updateChatbot(sender,message);
         break;
     case 2:
         break;
@@ -69,11 +65,13 @@ function getCookieValue(a) {
 //Send a message if it's not empty, then clear the input field
 function sendMessage(message) {
     if (message !== "") {
-        webSocket.send(message);
-        id("message").value = "";
+        webSocket.send(String.fromCharCode(5) + message);
+        id("graph_input_text").value = "";
+
     }
 }
 
+/*this fun is probably to delete*/
 function updateChatbot(sender,msg) {
     id("responseTime").style.display = 'none';
     id("responseWeekday").style.display = 'none';

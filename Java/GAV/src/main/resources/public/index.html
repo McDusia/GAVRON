@@ -2,55 +2,63 @@
 <html lang = "pl">
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>WebsSockets</title>
+    <title>Graphs</title>
     <link rel="stylesheet" href="style.css">
     <meta charset="UTF-8">
-    <div class="main">
-        <h1 class="info">This is a page where you can check how various graph algorithms work.
-        Enjoy yourself!</h1>
-    </div>
+    <link href="https://fonts.googleapis.com/css?family=Indie+Flower" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Gloria+Hallelujah" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=PT+Sans" rel="stylesheet">
+
 </head>
 <body>
-
-    <div id="choosing_kind", class="main">
-    <h2 class="info">Choose the kind of graph algorithms visualisations</h2>
-        <br><br>
-
-
-        <ul>
-            <li><button id="BFS">BFS - breadth-first search</button>
-            <p class="paragraph"> This algorithm is simple algorithm for searching graph data structures.
-                It starts at one arbitrary node of a graph and explores the neighbour nodes first,
-                next move to the left neighbours.
-            </p></li>
-            <li><button id="DFS">DFS - depth-first search</button>
-            <p class="paragraph"> Similar to BFS this is algorithm for searching graph data structure.
-                It starts from selecting some node as the root and explores as far as possible
-                along each branch before backtracking.
-            </p></li>
-        </ul>
+    <div id="header-wrapper">
+        <div class="main" align="centre">
+        <h1 align ="centre" class="info" align="centre"><br> This is a page where you can check how various graph algorithms work. <br>
+            Enjoy yourself!<br><br> </h1>
+        </div>
     </div>
 
-    <br><br>
-    <div id ="chatbot" >
-        <h2 id = "chatbot-string">Chatbot</h2>
-        <table align="centre">
-            <tr><td><button id="time" align = "left">What time is it?</button></td></tr>
-            <tr><td><button id="weekday" align = "left">What day of the week it is?</button></td></tr>
-            <tr><td><button id="weather" align = "left">What is the weather like?</button></td></tr>
 
-        </table>
-        <br><br>
-        <table width = "300">
-            <tr><td><div id = "responseTime" align = "centre" style = "display: none;"></div></td></tr>
-            <tr><td><div id = "responseWeekday" align = "centre" style = "display: none;"></div></td></tr>
-            <tr><td><div id = "responseWeather" align = "centre" style = "display: none;"></div></td></tr>
-        </table>
+    <div id="page">
+        <div id="banner">
+            <div><img src="my_bubles2.svg" width="960" height="270" alt="Cannot be displayed" />
+            </a></div>
+        </div>
 
+        <div id="choosing_kind">
+            <div id = "start"></div>
+            <div id= "rest">
+                <h2 class="info"><br>Choose the kind of graph algorithms visualisations
+                    <br><br>
+                </h2>
+                <br><br>
+
+                <ul>
+                    <li><button id="BFS">BFS - breadth-first search</button>
+                        <p class="paragraph"> This algorithm is simple algorithm for searching graph data structures.
+                            It starts at one arbitrary node of a graph and explores the neighbour nodes first,
+                            next move to the left neighbours.
+                        </p></li>
+                    <li><button id="DFS">DFS - depth-first search</button>
+                        <p class="paragraph"> Similar to BFS this is algorithm for searching graph data structure.
+                            It starts from selecting some node as the root and explores as far as possible
+                            along each branch before backtracking.
+                        </p></li>
+                </ul>
+            </div>
+        </div>
+        <div id="graph_input" style.display = 'none'>
+            <input id="graph_input_text" placeholder="Enter graph...">
+            <button id = "send">Send</button>
+        </div>
     </div>
 
-    <img id = "graph" src="graf.png">
+    <img id = "graph" src="graf2.svg">
 
     <script src="websocketDemo.js"></script>
+    <!--<script src="arbor.js"></script>
+    <script src="arbor-tween.js"></script>
+    <script src="jquery.min.js"></script>
+    <script src=".js"></script> -->
 </body>
 </html>

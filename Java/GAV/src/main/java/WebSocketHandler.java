@@ -63,6 +63,10 @@ public class WebSocketHandler {
             case 4:
                 System.out.println("user wants to leave chatbot");
                 break;
+            case 5:
+                System.out.println("user enter graph \n" + message.substring(1));
+
+            break;
         }
     }
 }
