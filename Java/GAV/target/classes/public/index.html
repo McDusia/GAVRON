@@ -1,6 +1,24 @@
 <!DOCTYPE html>
 <html lang = "pl">
 <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>ForceDirected - Graph Operations</title>
+
+    <!-- CSS Files -->
+    <link type="text/css" href="Jit/Examples/css/base.css" rel="stylesheet" />
+    <link type="text/css" href="Jit/Examples/css/ForceDirected.css" rel="stylesheet" />
+
+    <!--[if IE]><script language="javascript" type="text/javascript" src="../../Extras/excanvas.js"></script><![endif]-->
+
+    <!-- JIT Library File -->
+    <script language="javascript" type="text/javascript" src="Jit/jit.js"></script>
+
+    <!-- Example File
+    <script language="javascript" type="text/javascript" src="example2.js"></script>-->
+
+
+
+
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Graphs</title>
     <link rel="stylesheet" href="style.css">
@@ -28,18 +46,21 @@
         <div id="choosing_kind">
             <div id = "start"></div>
             <div id= "rest">
-                <h2 class="info"><br>Choose the kind of graph algorithms visualisations
+                <h2 class="title"><br>Choose the kind of graph algorithms visualisations
                     <br><br>
                 </h2>
                 <br><br>
 
                 <ul>
                     <li><button id="BFS">BFS - breadth-first search</button>
+                    <br><br>
                         <p class="paragraph"> This algorithm is simple algorithm for searching graph data structures.
                             It starts at one arbitrary node of a graph and explores the neighbour nodes first,
                             next move to the left neighbours.
                         </p></li>
+                    <br>
                     <li><button id="DFS">DFS - depth-first search</button>
+                    <br><br>
                         <p class="paragraph"> Similar to BFS this is algorithm for searching graph data structure.
                             It starts from selecting some node as the root and explores as far as possible
                             along each branch before backtracking.
@@ -47,18 +68,53 @@
                 </ul>
             </div>
         </div>
-        <div id="graph_input" style.display = 'none'>
-            <input id="graph_input_text" placeholder="Enter graph...">
-            <button id = "send">Send</button>
+        <div id="graph_input">
+            <input id="graph_input_text" placeholder="Enter nodes number...">
+            <button id = "restart" align="right" >restart</button>
         </div>
     </div>
 
-    <img id = "graph" src="graf2.svg">
+    <!--<img id = "graph" src="graf2.svg">-->
+    <br><br>
+    <div id="container" style.display = 'none'>
+
+        <div id="left-container">
+
+            <div class="text">
+                <h4>
+                    Graph Operations
+                </h4>
+
+                <b>Click on the '+' link </b>to add an edge.<br /><br />
+                <b>Click on a node's label</b> to select a node and its connections.<br /><br />
+                <b>Click on the 'x' link</b> to delete a node.<br /><br />
+                You can <b>drag nodes</b> around and <b>zoom</b> and <b>pan.</b>
+
+            </div>
+
+            <div id="id-list"></div>
+
+        </div>
+
+        <div id="center-container">
+            <div id="infovis"></div>
+        </div>
+
+        <div id="right-container">
+
+            <div id="inner-details"></div>
+
+        </div>
+
+        <div id="log"></div>
+    </div>
+    <br>
+    <br>
+    <button id = "ready">The graph is ready</button>
+    <br>
+    <br>
 
     <script src="websocketDemo.js"></script>
-    <!--<script src="arbor.js"></script>
-    <script src="arbor-tween.js"></script>
-    <script src="jquery.min.js"></script>
-    <script src=".js"></script> -->
+
 </body>
 </html>

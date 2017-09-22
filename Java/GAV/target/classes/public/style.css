@@ -9,7 +9,7 @@ html {
 #header-wrapper {
 	overflow: hidden;
 	height: 187px;
-	background: url(header-wrapper.jpg) repeat-x left top;
+	background: rgb(0,0,51);
 	align: "centre";
 
 }
@@ -27,22 +27,9 @@ html {
 	left: 0px;
 }
 
-#choosing_kind .start {
-	height: 15px;
-	width: 960px;
-	/*background: url(banner-caption-bg.png) no-repeat left top;*/
-}
-
-
-#choosing_kind .rest{
-    background: url(banner-caption-bg.png) no-repeat left top;
-                url(body111.jpg) repeat center 100% ;
-
-}
 
 #choosing_kind {
-    background: rgb(64,64,89);/*url(body111.jpg) repeat left top;*/
-    border: 3px dashed rgb(128,128,128);
+    background: rgb(191,191,166);
     padding: 50px;
     top: 0px;
     left: 0px;
@@ -52,14 +39,20 @@ html {
 
 #page {
 	overflow: hidden;
-	width: 960px;
+	width: 1000px;
 	margin: 0px auto;
 	padding: 0px 0px 0px 0px;
 }
 
 
 .info {
-    color: rgb(255,255,255);
+    color: rgb(255,255,204);
+    text-align: center;
+    font-family: 'PT Sans', sans-serif;
+}
+
+.title {
+    color: rgb(0,0,51);
     text-align: center;
     font-family: 'PT Sans', sans-serif;
 }
@@ -74,10 +67,10 @@ h2 {
 
 .paragraph {
     font-size: 16px;
-    font-family: sans-serif;
+    font-family: 'PT Sans', sans-serif;
     text-align: left;
     word-wrap: break-word;
-    color: rgb(255,255,204);
+    color: rgb(64,64,89);
     line-height: 25px;
 }
 
@@ -97,28 +90,30 @@ h2 {
 }
 
 body {
-    background-image: url("back.png");
+    background: rgb(255,255,204);
     height: 100%;
     background-position:center;
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
-    font-family: 'Cookie';/*'Proxima Nova Soft'/*'Proxima Sans Nova', cursive;*/
+    font-family: 'PT Sans', sans-serif;
     font-size: 14px;
     margin: 0 auto;
     overflow: auto
 }
 
 input {
-    width: 100%;
+    width: 200px;
     padding: 5px;
     margin: 5px 0;
+
 }
 
 button {
     color: rgb(255,255,204);
     background: rgb(64,64,89);
-    border: 5px ridge rgb(64,64,89);
+    border: 5px inset rgb(64,64,89);
+    border-radius: 5px;
     font-size: 20px;
     align: left;
 }

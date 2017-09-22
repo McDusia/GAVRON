@@ -9,6 +9,7 @@ import java.net.HttpCookie;
 public class WebSocketHandler {
     private String sender, msg;
     private GAVSystem gav;
+    private int nodesNumber = 0;
 
     @OnWebSocketConnect
     public void onConnect(Session user) throws Exception {
@@ -24,6 +25,8 @@ public class WebSocketHandler {
 
     @OnWebSocketMessage
     public void onMessage(Session user, String message) {
+        //System.out.println(message);
+        //System.out.println("test"+message.codePointAt(0));
         switch (message.codePointAt(0)){
             case 1:
                 //user chose BFS
@@ -35,38 +38,29 @@ public class WebSocketHandler {
 
                 break;
             case 3:
-                //user chose chatbot
-                String question = message.substring(1, message.length());
-                String response ="";
-                Chatbot bot = new Chatbot();
-                switch (question)
-                {
-                    case "time":
-                        response = bot.getTime();
-                        break;
-                    case "weekday":
-                        response = bot.getDay();
-                        break;
-                    case "weather":
-                        response = bot.getWeatherInfo();
-                        break;
-                }
-                Json j = new Json();
-                String JsonToSend = j.newJsonString(question,response);
+                System.out.println("edge added -> " + message.substring(1));
+                break;
+            case 4:
+                System.out.println("node deleted -> " + message.substring(1));
+                break;
+            case 5:
+                System.out.println("nodes number -> " + message.substring(1));
+                //nodesNumber =;
+                Json j2 = new Json();
+                String JsonToSend2 = j2.newJsonString("ja",message);
                 try {
-                    user.getRemote().sendString(JsonToSend);
+                    user.getRemote().sendString(JsonToSend2);
                 }catch (IOException e)
                 {
                     e.printStackTrace();
                 }
-                break;
-            case 4:
-                System.out.println("user wants to leave chatbot");
-                break;
-            case 5:
-                System.out.println("user enter graph \n" + message.substring(1));
-
             break;
+            case 6:
+                System.out.println("graph is ready");
+                break;
+            case 7:
+                System.out.println("---RESTART---");
+                break;
         }
     }
 }
