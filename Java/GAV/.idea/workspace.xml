@@ -1,78 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c9566fdf-5a2e-4a0a-9289-8b649c76448e" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/public/lib/excanvas.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/public/lib/jit-yc.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/public/lib/jit.js" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/resources/public/background1.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/resources/public/backgroung3.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/resources/public/banner-caption-bg.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/resources/public/body.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/resources/public/body1.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/resources/public/body1.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/resources/public/body11.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/resources/public/body111.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/resources/public/checked.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/resources/public/header-wrapper.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/resources/public/run.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/resources/public/sidebar-bg-01.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/resources/public/sidebar-bg-02.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/resources/public/sidebar-bg-03.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/resources/public/sidebar-title-bg.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/resources/public/src/dev.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/resources/public/src/etc.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/resources/public/src/graphics/colors.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/resources/public/src/graphics/graphics.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/resources/public/src/graphics/primitives.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/resources/public/src/hermetic.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/resources/public/src/kernel.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/resources/public/src/physics/atoms.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/resources/public/src/physics/barnes-hut.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/resources/public/src/physics/physics.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/resources/public/src/physics/system.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/resources/public/src/physics/worker.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/resources/public/src/tween/easing.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/resources/public/src/tween/tween.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/public/background1.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/public/banner-caption-bg.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/public/body.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/public/body1.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/public/body1.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/public/body11.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/public/body111.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/public/checked.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/public/header-wrapper.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/public/run.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/public/sidebar-bg-01.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/public/sidebar-bg-02.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/public/sidebar-bg-03.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/public/sidebar-title-bg.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/public/src/dev.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/public/src/etc.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/public/src/graphics/colors.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/public/src/graphics/graphics.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/public/src/graphics/primitives.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/public/src/hermetic.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/public/src/kernel.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/public/src/physics/atoms.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/public/src/physics/barnes-hut.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/public/src/physics/physics.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/public/src/physics/system.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/public/src/physics/worker.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/public/src/tween/easing.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/public/src/tween/tween.js" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/artifacts/GAV.jar" afterPath="$PROJECT_DIR$/classes/artifacts/GAV.jar" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/WebSocketHandler.class" afterPath="$PROJECT_DIR$/target/classes/WebSocketHandler.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/WebSocketHandler.java" afterPath="$PROJECT_DIR$/src/main/java/WebSocketHandler.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/public/index.html" afterPath="$PROJECT_DIR$/src/main/resources/public/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/public/style.css" afterPath="$PROJECT_DIR$/src/main/resources/public/style.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/public/websocketDemo.js" afterPath="$PROJECT_DIR$/src/main/resources/public/websocketDemo.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/public/index.html" afterPath="$PROJECT_DIR$/target/classes/public/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/public/style.css" afterPath="$PROJECT_DIR$/target/classes/public/style.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/public/websocketDemo.js" afterPath="$PROJECT_DIR$/target/classes/public/websocketDemo.js" />
-    </list>
+    <list default="true" id="c9566fdf-5a2e-4a0a-9289-8b649c76448e" name="Default" comment="" />
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
