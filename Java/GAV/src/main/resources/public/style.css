@@ -9,13 +9,13 @@ html {
 #header-wrapper {
 	overflow: hidden;
 	height: 187px;
-	background: rgb(0,0,51);
+	width: 100%;
+	background: rgb(255,255,204);
 	align: "centre";
-
 }
 
 .container {
-	width: 960px;
+	width: 90%;
 	margin: 0px auto;
 }
 /*******************/
@@ -27,10 +27,20 @@ html {
 	left: 0px;
 }
 
+#back {
+    right: 10%;
+    position: fixed;
+}
+
+#canvas1 {
+    right: 0px;
+
+}
 
 #choosing_kind {
-    background: rgb(191,191,166);
+    background: rgba(191,191,166,0.5);
     padding: 50px;
+    border-radius: 10px;
     top: 0px;
     left: 0px;
     z-index: +2;
@@ -39,15 +49,15 @@ html {
 
 #page {
 	overflow: hidden;
-	width: 1000px;
+	width: 100%;
 	margin: 0px auto;
 	padding: 0px 0px 0px 0px;
 }
 
 
 .info {
-    color: rgb(255,255,204);
-    text-align: center;
+    color: rgb(0,0,51);/*rgb(255,255,204);*/
+    text-align: centre;
     font-family: 'PT Sans', sans-serif;
 }
 
@@ -90,7 +100,7 @@ h2 {
 }
 
 body {
-    background: rgb(255,255,204);
+    background-image: url("back.png");/*rgb(255,255,204);*/
     height: 100%;
     background-position:center;
     background-size: cover;
@@ -111,9 +121,9 @@ input {
 
 button {
     color: rgb(255,255,204);
-    background: rgb(64,64,89);
+    background: rgb(0,0,51);
     border: 5px inset rgb(64,64,89);
-    border-radius: 5px;
+    border-radius: 10px;
     font-size: 20px;
     align: left;
 }

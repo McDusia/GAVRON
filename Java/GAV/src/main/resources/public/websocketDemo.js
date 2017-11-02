@@ -9,14 +9,19 @@ var Mode=1;
 screenMode(1);
 
 var nodesNumber = 0;
+var algorithm = 0;
+var json = [];
+var fd;
 
 id("BFS").addEventListener("click", function () {
    screenMode(2);
+   algorithm = 1;
    webSocket.send(String.fromCharCode(1));
  });
 
 id("DFS").addEventListener("click", function () {
    screenMode(2);
+   algorithm = 2;
    webSocket.send(String.fromCharCode(2));
  });
 
@@ -28,28 +33,78 @@ id("graph_input_text").addEventListener("keypress",function(e) {
    }
 });
 
+var rootNode;
 id("ready").addEventListener("click", function() {
     sendMessage(String.fromCharCode(6));
-
+    setStartNode();
 });
 
+id("back").addEventListener("click", function() {
+    sendMessage(String.fromCharCode(7));
+    screenMode(1);
+});
+
+function setStartNode()
+{
+
+    var root= document.createElement('span');
+    root.className = 'box';
+    root.innerHTML = '<input placeholder="Enter start node">';
+    start_node.appendChild(root);
+    root.addEventListener("keypress", function(e) {
+        if(e.keyCode == 13) {
+        sendMessage(String.fromCharCode(8) + e.target.value);
+        rootNode =  e.target.value;
+        console.log(rootNode);
+        console.log('test',json[rootNode]);
+        root.value = "";
+        root.parentNode.removeChild(root);
+
+        console.log(json);
+        console.log('rootNode',rootNode);
 
 
+        json[rootNode].data = {"$color": "#eb5656","$type": "circle"};
+
+
+        console.log('test2',json[rootNode]);
+        fd.loadJSON(json);
+
+        fd.computeIncremental({
+           iter: 40,
+           property: 'end',
+           onStep: function(perc){
+             Log.write(perc + '% loaded...');
+           },
+           onComplete: function(){
+             Log.write('Your graph');
+             fd.animate({
+               modes: ['polar'],
+               transition: $jit.Trans.linear,
+               duration: 100
+             });
+           }
+         });
+         return false;
+        }
+    });
+}
 
 function screenMode(mode)
 {
     Mode = mode;
-
     switch(mode){
         case 1:
         id("choosing_kind").style.display = '';
         id("graph_input").style.display = 'none';
         id("container").style.display = 'none';
+        id("back").style.display = 'none';
         break;
         case 2:
         id("choosing_kind").style.display = 'none';
         id("graph_input").style.display = '';
         id("container").style.display = '';
+        id("back").style.display = '';
     }
 }
 
@@ -60,7 +115,6 @@ function paintPage(msg) {
     var data = JSON.parse(msg.data);
     var sender = data.sender;
     var message = data.message;
-
 
     switch(Mode){
     case 1:
@@ -129,7 +183,7 @@ var Log = {
 function init(){
   // init data
   var type = "circle";
-    var json = [];
+
 
   for(var x = 0; x < nodesNumber; x++) {
     json.push({"adjacencies": [],
@@ -143,7 +197,7 @@ function init(){
   }
 
   // init ForceDirected
-  var fd = new $jit.ForceDirected({
+  fd = new $jit.ForceDirected({
     //id of the visualization container
     injectInto: 'infovis',
     //Enable zooming and panning
@@ -216,7 +270,7 @@ function init(){
       domElement.appendChild(nameContainer);
       domElement.appendChild(closeButton);
       domElement.appendChild(adderEdges);
-      style.fontSize = "1em";
+      style.fontSize = "2em";
       style.color = "#ddd";
       //Fade the node and its connections when
       //clicking the close button
@@ -236,7 +290,7 @@ function init(){
       adderEdges.onclick = function() {
         var box = document.createElement('span');
         box.className = 'box';
-        box.innerHTML = '<input placeholder="In which?">';
+        box.innerHTML = '<input placeholder="To which?">';
         domElement.appendChild(box);
 
         box.addEventListener("keypress", function(e) {
@@ -279,6 +333,22 @@ function init(){
           fd.canvas.clear();  //to nie działa :(
           fd.Graph.Label.DOM.clearLabels();
           fd.Graph.Util.clean();
+          /*node.setData('alpha', 0, 'end');
+                  node.eachAdjacency(function(adj) {
+                    adj.setData('alpha', 0, 'end');
+                  });
+                  fd.fx.animate({
+                    modes: ['node-property:alpha',
+                            'edge-property:alpha'],
+                    duration: 500
+            */
+            fd.graph.eachNode(function(n) {
+              delete n;
+
+              n.eachAdjacency(function(adj) {
+                delete adj;
+              });
+             });
 
 
       });
@@ -340,7 +410,6 @@ function init(){
       style.display = '';
     }
   });
-  // load JSON data.
 
   fd.loadJSON(json);
     fd.canvas.scale(0.8,0.8);
@@ -361,5 +430,4 @@ function init(){
       });
     }
   });
-  // end
 }

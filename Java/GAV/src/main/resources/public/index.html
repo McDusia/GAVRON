@@ -17,6 +17,8 @@
     <script language="javascript" type="text/javascript" src="example2.js"></script>-->
 
 
+    <script type="text/javascript" src="wz_jsgraphics.js"></script>
+    <script src="processing.js"></script>
 
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -29,20 +31,17 @@
 
 </head>
 <body>
+
+    <canvas id= "canvas1" data-processing-sources="interactive.pde"></canvas>
     <div id="header-wrapper">
-        <div class="main" align="centre">
-        <h1 align ="centre" class="info" align="centre"><br> This is a page where you can check how various graph algorithms work. <br>
-            Enjoy yourself!<br><br> </h1>
+        <h1 align ="centre" class="info"><br> Check how various graph algorithms work. <br>
+            Enjoy! </h1>
         </div>
     </div>
-
-
     <div id="page">
-        <div id="banner">
-            <div><img src="my_bubles2.svg" width="960" height="270" alt="Cannot be displayed" />
-            </a></div>
-        </div>
+            <button id="back"> <img src="strzalka.svg" width="40" height="40"> </button>
 
+        <br><br>
         <div id="choosing_kind">
             <div id = "start"></div>
             <div id= "rest">
@@ -51,25 +50,24 @@
                 </h2>
                 <br><br>
 
-                <ul>
-                    <li><button id="BFS">BFS - breadth-first search</button>
-                    <br><br>
-                        <p class="paragraph"> This algorithm is simple algorithm for searching graph data structures.
-                            It starts at one arbitrary node of a graph and explores the neighbour nodes first,
-                            next move to the left neighbours.
-                        </p></li>
-                    <br>
-                    <li><button id="DFS">DFS - depth-first search</button>
-                    <br><br>
-                        <p class="paragraph"> Similar to BFS this is algorithm for searching graph data structure.
-                            It starts from selecting some node as the root and explores as far as possible
-                            along each branch before backtracking.
-                        </p></li>
-                </ul>
+                <button id="BFS">BFS - breadth-first search</button>
+                <br><br>
+                    <p class="paragraph"> This algorithm is simple algorithm for searching graph data structures.
+                        It starts at one arbitrary node of a graph and explores the neighbour nodes first,
+                        next move to the left neighbours.
+                    </p>
+                <br>
+                <button id="DFS">DFS - depth-first search</button>
+                <br><br>
+                    <p class="paragraph"> Similar to BFS this is algorithm for searching graph data structure.
+                        It starts from selecting some node as the root and explores as far as possible
+                        along each branch before backtracking.
+                    </p>
             </div>
         </div>
         <div id="graph_input">
-            <input id="graph_input_text" placeholder="Enter nodes number...">
+            <input id="graph_input_text" placeholder="Enter number of nodes"><br>
+            <input placeholder="Chose the color" type = "color">
             <button id = "restart" align="right" >restart</button>
         </div>
     </div>
@@ -112,6 +110,7 @@
     <br>
     <button id = "ready">The graph is ready</button>
     <br>
+    <div id="start_node"></div>
     <br>
 
     <script src="websocketDemo.js"></script>
