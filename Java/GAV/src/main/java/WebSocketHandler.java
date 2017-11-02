@@ -61,6 +61,9 @@ public class WebSocketHandler {
             case 7:
                 System.out.println("---RESTART---");
                 break;
+            case 8:
+                System.out.println("start node -> " + message.substring(1));
+                break;
         }
     }
 }
