@@ -5,5 +5,7 @@
 **/*.class
 **/*.iml
 **/*.xml
-**/*.class
-target/classes/**
+/*.class
+Java/GAV/target
+Java/GAV/classes
+Java/GAV/.idea
