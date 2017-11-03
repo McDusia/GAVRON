@@ -3,7 +3,7 @@
 //CLIENT SIDE
 var webSocket = new WebSocket("ws://" + location.hostname + ":" + location.port + "/public/");
 //var webSocket = new WebSocket("ws://graph.alt-wn.com:8080");
-webSocket.onmessage = function (msg) { paintPage(msg); };
+webSocket.onmessage = function (msg) { dispose(msg); };
 webSocket.onclose = function () { alert("Connection closed") };
 var Mode=1;
 screenMode(1);
@@ -46,28 +46,20 @@ id("back").addEventListener("click", function() {
 
 function setStartNode()
 {
-
     var root= document.createElement('span');
+    var start;
     root.className = 'box';
     root.innerHTML = '<input placeholder="Enter start node">';
     start_node.appendChild(root);
     root.addEventListener("keypress", function(e) {
         if(e.keyCode == 13) {
-        sendMessage(String.fromCharCode(8) + e.target.value);
+        start = e.target.value;
+        sendMessage(String.fromCharCode(8) + start);
         rootNode =  e.target.value;
-        console.log(rootNode);
-        console.log('test',json[rootNode]);
-        root.value = "";
+        //root.value = "";
         root.parentNode.removeChild(root);
 
-        console.log(json);
-        console.log('rootNode',rootNode);
-
-
         json[rootNode].data = {"$color": "#eb5656","$type": "circle"};
-
-
-        console.log('test2',json[rootNode]);
         fd.loadJSON(json);
 
         fd.computeIncremental({
@@ -85,9 +77,12 @@ function setStartNode()
              });
            }
          });
+         sendMessage(String.fromCharCode(9) + start);
          return false;
         }
     });
+
+
 }
 
 function screenMode(mode)
@@ -108,29 +103,53 @@ function screenMode(mode)
     }
 }
 
-var conn = "18";
 
-function paintPage(msg) {
+function dispose(msg) {
 
     var data = JSON.parse(msg.data);
     var sender = data.sender;
     var message = data.message;
 
+    switch(message[0]){
+        case "1":
+            paintPage();
+            break;
+        case "2":
+
+            colorNode(message.substring(1));
+            break;
+    }
+}
+
+function paintPage() {
+
     switch(Mode){
     case 1:
-
         break;
     case 2:
         init();
         break;
     }
 }
-function getCookieValue(a) {
-    var b = document.cookie.match('(^|;)\\s*' + a + '\\s*=\\s*([^;]+)');
-    return b ? b.pop() : '';
+
+function colorNode(a) {
+
+    var node = fd.graph.getNode(a);
+
+     node.setData('color', "eb0000", 'start');
+     node.setData('color', "eb5656", 'end');
+     fd.fx.animate({
+          modes: ['node-property:color'],
+          duration: 1000
+       });
+       sendMessage(String.fromCharCode(10));
 }
 
-//Send a message if it's not empty
+/*function getCookieValue(a) {
+    var b = document.cookie.match('(^|;)\\s*' + a + '\\s*=\\s*([^;]+)');
+    return b ? b.pop() : '';
+}*/
+
 function sendMessage(message) {
     if (message !== "") {
         webSocket.send(message);
@@ -173,7 +192,7 @@ var Log = {
   elem: false,
   write: function(text){
     if (!this.elem)
-      this.elem = document.getElementById('log');
+      this.elem = id('log');
     this.elem.innerHTML = text;
     this.elem.style.left = (500 - this.elem.offsetWidth / 2) + 'px';
   }
@@ -198,7 +217,16 @@ function init(){
 
   // init ForceDirected
   fd = new $jit.ForceDirected({
+
+    Margin: {
+        top: 30,
+        left: 20,
+        right: 20,
+        bottom: 30
+    },
     //id of the visualization container
+
+
     injectInto: 'infovis',
     //Enable zooming and panning
     //with scrolling and DnD
@@ -255,8 +283,7 @@ function init(){
     // This method is only triggered
     // on label creation and only for DOM labels (not native canvas ones).
     onCreateLabel: function(domElement, node){
-      // Create a 'name' and 'close' buttons and add them
-      // to the main node label
+
       var nameContainer = document.createElement('span'),
           closeButton = document.createElement('span'),
           adderEdges = document.createElement('span'),
@@ -272,8 +299,7 @@ function init(){
       domElement.appendChild(adderEdges);
       style.fontSize = "2em";
       style.color = "#ddd";
-      //Fade the node and its connections when
-      //clicking the close button
+
       closeButton.onclick = function() {
         node.setData('alpha', 0, 'end');
         node.eachAdjacency(function(adj) {
