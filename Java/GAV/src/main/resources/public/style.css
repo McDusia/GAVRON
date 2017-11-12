@@ -7,68 +7,71 @@ html {
 }
 
 #header-wrapper {
+    background-image: url("t1.png");/*rgb(255,255,204);*/
 	overflow: hidden;
-	height: 187px;
-	width: 100%;
-	background: rgb(255,255,204);
-	align: "centre";
+	height: 170px;
+	width: 90%;
+	border: 5px solid rgb(42,42,42);
+    border-radius: 10px;
+	/*background: rgb(255,255,204);*/
+	align: center;
+	float: center;
+	margin: 0 auto;
+}
+
+h1 {
+    font-size: 2em;
+    color: rgb(255,255,204);
+    /*background: rgb(0,0,51);
+    border: 5px inset rgb(64,64,89);
+    border-radius: 10px;*/
+    background:   rgb(42,42,42);
+    text-align: "center";
+    line-height: 40px;
+    font-family: 'Open Sans', sans-serif;
+    text-decoration: none;
+    width: 65%;
+    /*height: 90%;*/
+    margin: 0 auto;
 }
 
 .container {
 	width: 90%;
 	margin: 0px auto;
 }
-/*******************/
-
-#banner {
-	height: 270px;
-	margin-bottom: 30px;
-	top: 0px;
-	left: 0px;
-}
 
 #back {
-    right: 10%;
+    top: 110px;
+    right: 5%;
     position: fixed;
+    z-index: +3;
 }
 
 #canvas1 {
     right: 0px;
-
 }
 
 #choosing_kind {
     background: rgba(191,191,166,0.5);
-    padding: 50px;
+    padding: 5% 10% 10% 10%;
     border-radius: 10px;
-    top: 0px;
-    left: 0px;
     z-index: +2;
-    float: centre;
+    float: center;
 }
 
 #page {
 	overflow: hidden;
-	width: 100%;
+	width: 90%;
 	margin: 0px auto;
 	padding: 0px 0px 0px 0px;
-}
-
-
-.info {
-    color: rgb(0,0,51);/*rgb(255,255,204);*/
-    text-align: centre;
-    font-family: 'PT Sans', sans-serif;
 }
 
 .title {
     color: rgb(0,0,51);
     text-align: center;
-    font-family: 'PT Sans', sans-serif;
-}
-
-h1 {
-    font-size: 2em;
+    line-height: 30px;
+    font-size: 1.5em;
+    font-family: 'Open Sans', sans-serif;
 }
 
 h2 {
@@ -76,12 +79,15 @@ h2 {
 }
 
 .paragraph {
-    font-size: 16px;
-    font-family: 'PT Sans', sans-serif;
-    text-align: left;
+    font-size: 18px;
+    font-family: 'Open Sans', sans-serif;
+    text-align: center;
+    align: center;
+    /*width: 90%;*/
     word-wrap: break-word;
     color: rgb(64,64,89);
-    line-height: 25px;
+    line-height: 30px;
+    overflow: hidden;
 }
 
 #graph {
@@ -91,11 +97,10 @@ h2 {
     top: 900px;
     right: 80px;
     width: 700px;
-
 }
 
 .response {
-    text-align: "centre";
+    text-align: "center";
     color: rgb(64,64,89);
 }
 
@@ -106,9 +111,9 @@ body {
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
-    font-family: 'PT Sans', sans-serif;
+    font-family: 'Open Sans', sans-serif;
     font-size: 14px;
-    margin: 0 auto;
+    /*margin: 0 auto;*/
     overflow: auto
 }
 
@@ -116,21 +121,58 @@ input {
     width: 200px;
     padding: 5px;
     margin: 5px 0;
-
 }
-
-button {
+.button_panel .button {
+    background-color: rgb(0,0,51);
+    border: 1px solid rgb(0,0,51);
+    color: rgb(255,255,204);
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
+    float: center;
+    height: 50px;
+}
+.button_panel .button:not(:last-child) {
+   /* border-right: none; /* Prevent double borders */
+}
+.choosing_panel .button:hover {
+    background-color: rgb(64,64,89);
+}
+#choosing_kind button {
     color: rgb(255,255,204);
     background: rgb(0,0,51);
     border: 5px inset rgb(64,64,89);
     border-radius: 10px;
     font-size: 20px;
-    align: left;
+    align: center;
+    display: inline-block;
+    /*font-family: 'Open Sans', sans-serif;
+      background-color: rgb(0,0,51);*/
+      transition: background-color 0.3s linear 0.0s;
+}
+#choosing_kind button:hover {
+ background-color: rgb(64,64,89);
 }
 
-li {
-    margin: 5px 0;
+#header-wrapper button {
+    color: rgb(255,255,204);
+    background: rgb(0,0,51);
+    border: 5px inset rgb(64,64,89);
+    border-radius: 10px;
+    font-size: 20px;
+    align: center;
+    display: inline-block;
+    /*font-family: 'Open Sans', sans-serif;
+      background-color: rgb(0,0,51);*/
+      transition: background-color 0.3s linear 0.0s;
 }
+#header-wrapper button:hover {
+ background-color: rgb(64,64,89);
+}
+
 
 @keyframes enter {
     from { transform: none;        }

@@ -25,6 +25,17 @@ id("DFS").addEventListener("click", function () {
    webSocket.send(String.fromCharCode(2));
  });
 
+/*var color;
+id("choose_color").addEventListener("change", watchColorPicker, false);
+
+function watchColorPicker(event) {
+  /*document.querySelectorAll("p").forEach(function(p) {
+    p.style.color = event.target.value;
+    color = event.target.value;
+  };
+  */
+
+
 id("graph_input_text").addEventListener("keypress",function(e) {
    if(e.keyCode == 13) {
    sendMessage(String.fromCharCode(5) + e.target.value);
@@ -94,12 +105,14 @@ function screenMode(mode)
         id("graph_input").style.display = 'none';
         id("container").style.display = 'none';
         id("back").style.display = 'none';
+        id("ready").style.display = 'none';
         break;
         case 2:
         id("choosing_kind").style.display = 'none';
         id("graph_input").style.display = '';
         id("container").style.display = '';
         id("back").style.display = '';
+        id("ready").style.display = '';
     }
 }
 

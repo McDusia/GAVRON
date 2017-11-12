@@ -13,66 +13,63 @@
     <!-- JIT Library File -->
     <script language="javascript" type="text/javascript" src="Jit/jit.js"></script>
 
-    <!-- Example File
-    <script language="javascript" type="text/javascript" src="example2.js"></script>-->
-
-
-    <script type="text/javascript" src="wz_jsgraphics.js"></script>
-    <script src="processing.js"></script>
-
-
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Graphs</title>
     <link rel="stylesheet" href="style.css">
     <meta charset="UTF-8">
-    <link href="https://fonts.googleapis.com/css?family=Indie+Flower" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Gloria+Hallelujah" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=PT+Sans" rel="stylesheet">
-
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
 </head>
 <body>
 
-    <canvas id= "canvas1" data-processing-sources="interactive.pde"></canvas>
     <div id="header-wrapper">
-        <h1 align ="centre" class="info"><br> Check how various graph algorithms work. <br>
-            Enjoy! </h1>
-        </div>
-    </div>
-    <div id="page">
-            <button id="back"> <img src="strzalka.svg" width="40" height="40"> </button>
-
         <br><br>
+        <h1>
+                Check how various graph algorithms work. Enjoy!
+        </h1>
+        <button id="back"> <img src="strzalka.svg" width="40px" height="40px"> </button>
+    </div>
+    <br>
+    <div id="page">
         <div id="choosing_kind">
             <div id = "start"></div>
             <div id= "rest">
-                <h2 class="title"><br>Choose the kind of graph algorithms visualisations
-                    <br><br>
+                <h2 class="title">
+                    Choose the kind of graph algorithms visualisations
                 </h2>
-                <br><br>
-
+                <br>
                 <button id="BFS">BFS - breadth-first search</button>
                 <br><br>
-                    <p class="paragraph"> This algorithm is simple algorithm for searching graph data structures.
+                    <p class="paragraph">
+                        This algorithm is simple algorithm for searching graph data structures.
                         It starts at one arbitrary node of a graph and explores the neighbour nodes first,
                         next move to the left neighbours.
                     </p>
                 <br>
                 <button id="DFS">DFS - depth-first search</button>
                 <br><br>
-                    <p class="paragraph"> Similar to BFS this is algorithm for searching graph data structure.
+                    <p class="paragraph">
+                        Similar to BFS this is algorithm for searching graph data structure.
                         It starts from selecting some node as the root and explores as far as possible
                         along each branch before backtracking.
                     </p>
             </div>
         </div>
-        <div id="graph_input">
-            <input id="graph_input_text" placeholder="Enter number of nodes"><br>
-            <input placeholder="Chose the color" type = "color">
-            <button id = "restart" align="right" >restart</button>
+        <div id="graph_input" class="button_panel">
+            <button class="button">
+                <input id="graph_input_text" placeholder="Enter number of nodes">
+            </button>
+            <!--<button class="button">
+                <input id="choose_color" placeholder="Choose the color" type = "color"
+                       value="#FF0000">
+            </button>-->
+            <button id = "restart" class="button">restart</button>
+            <button id = "ready" class = "button">The graph is ready</button>
+                <br>
+                <div id="start_node"></div>
+                <br>
         </div>
     </div>
 
-    <!--<img id = "graph" src="graf2.svg">-->
     <br><br>
     <div id="container" style.display = 'none'>
 
@@ -108,10 +105,7 @@
     </div>
     <br>
     <br>
-    <button id = "ready">The graph is ready</button>
-    <br>
-    <div id="start_node"></div>
-    <br>
+
 
     <script src="websocketDemo.js"></script>
 
