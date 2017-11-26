@@ -9,8 +9,12 @@ public class GAVSystem {
 
     public static void main(String[] args) {
 
+        /*webSocket("/", WebSocketHandler.class);
+        staticFileLocation("/"); //index.html is served at localhost:4567 (default port)*/
+
         webSocket("/public/", WebSocketHandler.class);
         staticFileLocation("/public/"); //index.html is served at localhost:4567 (default port)
+
         init();
 
     }

@@ -7,7 +7,7 @@ html {
 }
 
 #header-wrapper {
-    background-image: url("t1.png");/*rgb(255,255,204);*/
+    background-image: url("titlePicture.png");/*rgb(255,255,204);*/
 	overflow: hidden;
 	height: 170px;
 	width: 90%;

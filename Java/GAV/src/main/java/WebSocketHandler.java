@@ -1,7 +1,6 @@
 import org.eclipse.jetty.websocket.api.*;
 import org.eclipse.jetty.websocket.api.annotations.*;
 import java.io.IOException;
-import java.net.HttpCookie;
 
 import static java.lang.Thread.sleep;
 
@@ -12,7 +11,7 @@ public class WebSocketHandler {
     private String sender, msg;
     private GAVSystem gav;
     private int nodesNumber = 0;
-
+    private int algoritm = 0;
 
 
     @OnWebSocketConnect
@@ -28,6 +27,7 @@ public class WebSocketHandler {
     }
 
     Graph g = new Graph(0);
+    int startNode;
     @OnWebSocketMessage
     public void onMessage(Session user, String message) {
 
@@ -35,10 +35,12 @@ public class WebSocketHandler {
         switch (message.codePointAt(0)){
             case 1:
                 //user chose BFS
+                algoritm = 1;
                 System.out.println("BFS chosen");
                 break;
             case 2:
                 //user chose DFS
+                algoritm = 2;
                 System.out.println("DFS chosen");
 
                 break;
@@ -57,7 +59,7 @@ public class WebSocketHandler {
                 g = new Graph(nodesQuantity);
                 System.out.println(g.toString());
                 Json j2 = new Json();
-                String JsonToSend2 = j2.newJsonString("ja","1");
+                String JsonToSend2 = j2.newJsonString("ja","0");
                 try {
                     user.getRemote().sendString(JsonToSend2);
                 }catch (IOException e)
@@ -77,10 +79,20 @@ public class WebSocketHandler {
             case 8:
 
                 System.out.println("start node -> " + message.substring(1));
+                startNode = Integer.parseInt(message.substring(1));
                 break;
 
             case 9:
-                new DFS(g,Integer.parseInt(message.substring(1)), this, user);
+                try {
+                    sleep(1000);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+                if(algoritm == 1)
+                    //new BFS(g,Integer.parseInt(message.substring(1)), this, user);
+                    new BFS(g,Integer.parseInt(message.substring(1)), this, user);
+                else if(algoritm == 2)
+                    new DFS(g,Integer.parseInt(message.substring(1)), this, user);
                 break;
 
 
