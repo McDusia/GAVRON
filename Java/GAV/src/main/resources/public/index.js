@@ -5,7 +5,6 @@ var webSocket = new WebSocket("ws://" + location.hostname + ":" + location.port 
 //var webSocket = new WebSocket("ws://graph.alt-wn.com:8080");
 webSocket.onmessage = function (msg) { dispose(msg); };
 webSocket.onclose = function () { alert("Connection closed") };
-webSocket.onopen = function () { alert("Connection open") };
 
 var nodesNumber = 0;
 var algorithm = 0;

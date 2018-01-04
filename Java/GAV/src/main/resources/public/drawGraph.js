@@ -70,9 +70,22 @@ function setStartNode()
     });
 }
 
-function colorNode(node)
+function colorNode(a)
 {
-    json[node].data = {"$color": "#eb5656","$type": "circle"};
+    var node = fd.graph.getNode(a);
+
+          node.setData('color', "eb0000", 'start');
+          node.setData('color', "eb5656", 'end');
+          fd.fx.animate({
+               modes: ['node-property:color'],
+               duration: 1000
+            });
+            sendMessage(String.fromCharCode(10));
+
+
+
+
+    /*json[node].data = {"$color": "#eb5656","$type": "circle"};
     console.log('test2',json[rootNode]);
     fd.loadJSON(json);
 
@@ -90,7 +103,7 @@ function colorNode(node)
            duration: 100
          });
        }
-     });
+     });*/
 }
 
 function dispose(msg) {
