@@ -1,35 +1,21 @@
+
 //Establish the WebSocket connection and set up event handlers
 
 //CLIENT SIDE
 var webSocket = new WebSocket("ws://" + location.hostname + ":" + location.port + "/public/");
 //var webSocket = new WebSocket("ws://graph.alt-wn.com:8080");
-webSocket.onmessage = function (msg) { paintPage(msg); };
+webSocket.onmessage = function (msg) { dispose(msg); };
 webSocket.onclose = function () { alert("Connection closed") };
-var Mode=1;
-screenMode(1);
-
 var nodesNumber = 0;
-var algorithm = 0;
 var json = [];
 var fd;
-
-id("BFS").addEventListener("click", function () {
-   screenMode(2);
-   algorithm = 1;
-   webSocket.send(String.fromCharCode(1));
- });
-
-id("DFS").addEventListener("click", function () {
-   screenMode(2);
-   algorithm = 2;
-   webSocket.send(String.fromCharCode(2));
- });
 
 id("graph_input_text").addEventListener("keypress",function(e) {
    if(e.keyCode == 13) {
    sendMessage(String.fromCharCode(5) + e.target.value);
    nodesNumber = e.target.value;
    id("graph_input_text").style.display = 'none';
+   id("graph_input_text_button").style.display = 'none';
    }
 });
 
@@ -37,16 +23,11 @@ var rootNode;
 id("ready").addEventListener("click", function() {
     sendMessage(String.fromCharCode(6));
     setStartNode();
-});
 
-id("back").addEventListener("click", function() {
-    sendMessage(String.fromCharCode(7));
-    screenMode(1);
 });
 
 function setStartNode()
 {
-
     var root= document.createElement('span');
     root.className = 'box';
     root.innerHTML = '<input placeholder="Enter start node">';
@@ -63,9 +44,7 @@ function setStartNode()
         console.log(json);
         console.log('rootNode',rootNode);
 
-
         json[rootNode].data = {"$color": "#eb5656","$type": "circle"};
-
 
         console.log('test2',json[rootNode]);
         fd.loadJSON(json);
@@ -85,45 +64,59 @@ function setStartNode()
              });
            }
          });
+
+        sendMessage(String.fromCharCode(9)+rootNode);
          return false;
         }
     });
 }
 
-function screenMode(mode)
+function colorNode(a)
 {
-    Mode = mode;
-    switch(mode){
-        case 1:
-        id("choosing_kind").style.display = '';
-        id("graph_input").style.display = 'none';
-        id("container").style.display = 'none';
-        id("back").style.display = 'none';
-        break;
-        case 2:
-        id("choosing_kind").style.display = 'none';
-        id("graph_input").style.display = '';
-        id("container").style.display = '';
-        id("back").style.display = '';
-    }
+    var node = fd.graph.getNode(a);
+
+          node.setData('color', "eb0000", 'start');
+          node.setData('color', "eb5656", 'end');
+          fd.fx.animate({
+               modes: ['node-property:color'],
+               duration: 1000
+            });
+            sendMessage(String.fromCharCode(10));
+
+
+
+
+    /*json[node].data = {"$color": "#eb5656","$type": "circle"};
+    console.log('test2',json[rootNode]);
+    fd.loadJSON(json);
+
+    fd.computeIncremental({
+       iter: 40,
+       property: 'end',
+       onStep: function(perc){
+         Log.write(perc + '% loaded...');
+       },
+       onComplete: function(){
+         Log.write('Your graph');
+         fd.animate({
+           modes: ['polar'],
+           transition: $jit.Trans.linear,
+           duration: 100
+         });
+       }
+     });*/
 }
 
-var conn = "18";
-
-function paintPage(msg) {
+function dispose(msg) {
 
     var data = JSON.parse(msg.data);
     var sender = data.sender;
     var message = data.message;
 
-    switch(Mode){
-    case 1:
-
-        break;
-    case 2:
+    if(message[0] == 0)
         init();
-        break;
-    }
+    if(message[0] == 2)
+        colorNode(message.substring(1));
 }
 function getCookieValue(a) {
     var b = document.cookie.match('(^|;)\\s*' + a + '\\s*=\\s*([^;]+)');
@@ -327,7 +320,7 @@ function init(){
             }
         });
       };
-      id("restart").addEventListener("click", function() {
+      /*id("restart").addEventListener("click", function() {
           sendMessage(String.fromCharCode(7));
           id("graph_input_text").style.display = '';
           fd.canvas.clear();  //to nie działa :(
@@ -341,7 +334,7 @@ function init(){
                     modes: ['node-property:alpha',
                             'edge-property:alpha'],
                     duration: 500
-            */
+
             fd.graph.eachNode(function(n) {
               delete n;
 
@@ -351,7 +344,7 @@ function init(){
              });
 
 
-      });
+      });*/
 
       //Toggle a node selection when clicking
       //its name. This is done by animating some

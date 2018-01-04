@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang = "pl">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>ForceDirected - Graph Operations</title>
+
+    <!-- CSS Files -->
+    <link type="text/css" href="Jit/Examples/css/base.css" rel="stylesheet" />
+    <link type="text/css" href="Jit/Examples/css/ForceDirected.css" rel="stylesheet" />
+
+    <!--[if IE]><script language="javascript" type="text/javascript" src="../../Extras/excanvas.js"></script><![endif]-->
+
+    <!-- JIT Library File -->
+    <script language="javascript" type="text/javascript" src="Jit/jit.js"></script>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Graphs</title>
+    <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+</head>
+<body>
+
+<div id="header-wrapper">
+    <br><br>
+    <h1>
+        Check how various graph algorithms work. Enjoy!
+    </h1>
+</div>
+<br>
+<div id="page">
+
+    <div id="graph_input" class="button_panel">
+
+        <button id = "graph_input_text_button" class="button">
+            <input id="graph_input_text" placeholder="Enter number of nodes">
+        </button>
+        <!--<button class="button">
+            <input id="choose_color" placeholder="Choose the color" type = "color"
+                   value="#FF0000">
+        </button>-->
+        <button id = "ready" class = "button">The graph is ready</button>
+        <br>
+        <div id="start_node"></div>
+        <br>
+    </div>
+</div>
+
+<br><br>
+<div id="container" style.display = 'none'>
+
+    <div id="left-container">
+
+        <div class="text">
+            <h4>
+                Graph Operations
+            </h4>
+
+            <b>Click on the '+' link </b>to add an edge.<br /><br />
+            <b>Click on a node's label</b> to select a node and its connections.<br /><br />
+            <b>Click on the 'x' link</b> to delete a node.<br /><br />
+            You can <b>drag nodes</b> around and <b>zoom</b> and <b>pan.</b>
+
+        </div>
+
+        <div id="id-list"></div>
+
+    </div>
+
+    <div id="center-container">
+        <div id="infovis"></div>
+    </div>
+
+    <div id="right-container">
+
+        <div id="inner-details"></div>
+
+        <div id="new_edge"></div>
+    </div>
+
+    <div id="log"></div>
+</div>
+<br>
+<br>
+
+<script src="drawGraph.js"></script>
+
+</body>
+</html>
