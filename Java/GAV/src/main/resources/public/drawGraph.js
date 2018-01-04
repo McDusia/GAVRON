@@ -15,6 +15,7 @@ id("graph_input_text").addEventListener("keypress",function(e) {
    sendMessage(String.fromCharCode(5) + e.target.value);
    nodesNumber = e.target.value;
    id("graph_input_text").style.display = 'none';
+   id("graph_input_text_button").style.display = 'none';
    }
 });
 
@@ -63,7 +64,7 @@ function setStartNode()
              });
            }
          });
-        alert(String.fromCharCode(9)+rootNode);
+
         sendMessage(String.fromCharCode(9)+rootNode);
          return false;
         }
@@ -319,7 +320,7 @@ function init(){
             }
         });
       };
-      id("restart").addEventListener("click", function() {
+      /*id("restart").addEventListener("click", function() {
           sendMessage(String.fromCharCode(7));
           id("graph_input_text").style.display = '';
           fd.canvas.clear();  //to nie działa :(
@@ -333,7 +334,7 @@ function init(){
                     modes: ['node-property:alpha',
                             'edge-property:alpha'],
                     duration: 500
-            */
+
             fd.graph.eachNode(function(n) {
               delete n;
 
@@ -343,7 +344,7 @@ function init(){
              });
 
 
-      });
+      });*/
 
       //Toggle a node selection when clicking
       //its name. This is done by animating some

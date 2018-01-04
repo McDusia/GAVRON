@@ -98,16 +98,5 @@ public class WebSocketHandler {
 
         }
     }
-    /*@OnWebSocketMessage
-    public void transferMessage(Session user, Session message, String msg) {
-        Json j = new Json();
-        String JsonToSend = j.newJsonString("ja",msg);
-        try {
-            user.getRemote().sendString(JsonToSend);
-        }catch (IOException e)
-        {
-            e.printStackTrace();
-        }
-    }*/
 
 }
